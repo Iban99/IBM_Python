@@ -21,14 +21,17 @@ def suma():
 
 suma()
 
+def resta(num1,num2):
+    print("resta =", num1-num2)
+
+resta(6,2)
+
 # Otra opción:
 def suma():
       num1 = 3
       num2 = 5
       resultado = num1 + num2
       return resultado
-
-
 
 
 print(suma())
@@ -75,15 +78,17 @@ def suma(a, b):
 
 result = suma(b=2, a=3)
 print(result)
-# result = 4
+# result = 5
 
 #---------------------------------------
 
 #También podríamos pasar varios valores que retornar a return.
-def f(x, y): 
+def f(x, y):
       return x * 2, y * 2
 
 a, b = f(1, 2)
+
+f(1,2)
 
 """ Sin embargo, esto no quiere decir que las funciones Python puedan de-volver varios valores, 
  lo que ocurre en realidad es que Python crea una tupla al vuelo cuyos elementos 
@@ -118,6 +123,7 @@ holaConNombre("Angel")  # llamada a la función, 'Hola Angel!' se muestra en la 
 #---------------------------------------
 #   Funcion con parametro por defecto
 #---------------------------------------
+
 
 def imprimir(precio, iva = 1.21): 
     print(precio * iva)

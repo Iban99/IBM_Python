@@ -49,7 +49,7 @@ b = 15
 c = True
 
 # Para verificar el tipo de cualquier objeto en Python, usamos la función type() :
-
+NUMEROPI=3.14159
 print(type(n_edad))
 print(type(n_numero))
 print(type(s_nombre))

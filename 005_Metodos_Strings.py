@@ -49,7 +49,7 @@ s_texto6 = "6"
 print(s_texto6.isdigit())
 
 #   isalum(): Devuelve un boolean, Devuelve verdadero si todos los caracteres de la cadena son numéricos y hay al menos un carácter. En caso contrario, devuelve falso.
-s_texto7 = "9857654gf7"
+s_texto7 = "985765jg47"
 print(s_texto7.isalnum())
 
 #   isalpha(): Devuelve un boolean, comprueba si hay sólo letras. Los espacios no cuentan.
