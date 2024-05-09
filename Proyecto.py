@@ -18,25 +18,34 @@ usuario ingrese una opción no válida o una posición que no exista en la lista
 • Comentarios explicativos: El código deberá estar comentado para explicar su
 funcionamiento en cada parte relevante.
 '''
-lista_tareas = []
+#Creamos dos listas para que se diferencie bien entre tareas pendientes y completadas
+lista_tareas_pendientes = list()
+lista_tareas_completadas = list()
+
+#Creamos dos variables de input, una la propia tarea, y la otra el estado
 tarea = input("Introduce una nueva tarea: ")
-if tarea not in lista_tareas:
-    lista_tareas.append(tarea)
-    print ("Tarea", tarea, "introducida a la lista")
-    print (lista_tareas)
+
+#Se verifica que el estado sea válido
+while True:
+    estado = input("Introduce su estado (pendiente/completada): ")
+    if estado in ["pendiente", "completada"]:
+        break  # Salimos del bucle si el estado es válido
+    else:
+        print("El estado sólo puede ser 'pendiente' o 'completada'. Inténtalo de nuevo.")
+
+#Bucle if en el que se comprueba si la tarea introducida está en alguna de las dos listas
+#y a partir de aquí, agrega la tarea a la lista correspondiente según el estado
+if tarea not in lista_tareas_completadas and tarea not in lista_tareas_pendientes:
+    if estado == "pendiente":
+        lista_tareas_pendientes.append(tarea)
+        print(f'La tarea se añadió a la lista_tareas_pendientes')
+    elif estado == "completada":
+        lista_tareas_completadas.append(tarea)
+        print(f'La tarea se añadió a la lista_tareas_completadas')
+    print (f'Pendientes: {lista_tareas_pendientes}')
+    print (f'Completadas: {lista_tareas_completadas}')
+#Si la tarea ya existe en alguna de las listas, nos salta el print del else.
 else:
     print ("La tarea ya está introducida")
-
-lista_tareas[0]
-lista_tareas_pendientes= {
-    "1.Realizar módulo 'Fundamentos en Internet'":"Completada",
-    "2.Realizar módulo 'Fundamentos en Programación'":"",
-    "3.Realizar módulo 'Fundamentos en Desarrollo Web'":"",
-    "4.Realizar módulo 'Fundamentos en GIT y GITHUB'":"",
-
-    }
-
-tarea_nueva = input('Introduce una nueva tarea: ')
-
 
 
