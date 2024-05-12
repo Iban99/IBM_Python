@@ -125,46 +125,46 @@ if __name__ == "__main__":
 #         print("Opción inválida. Por favor, seleccione una opción válida.")
 
 
-class GestorTareas:
-    def __init__(self):
-        self.lista_tareas_pendientes = []
-        self.lista_tareas_completadas = []
+# class GestorTareas:
+#     def __init__(self):
+#         self.lista_tareas_pendientes = []
+#         self.lista_tareas_completadas = []
 
-    def agregar_tarea(self, tarea, estado):
-        while True:
-            if estado in ["pendiente", "completada"]:
-                break
-            else:
-                print("El estado solo puede ser 'pendiente' o 'completada'. Inténtalo de nuevo.")
-                estado = input("Introduce su estado (pendiente/completada): ")
+#     def agregar_tarea(self, tarea, estado):
+#         while True:
+#             if estado in ["pendiente", "completada"]:
+#                 break
+#             else:
+#                 print("El estado solo puede ser 'pendiente' o 'completada'. Inténtalo de nuevo.")
+#                 estado = input("Introduce su estado (pendiente/completada): ")
 
-        if tarea not in self.lista_tareas_completadas and tarea not in self.lista_tareas_pendientes:
-            if estado == "pendiente":
-                self.lista_tareas_pendientes.append(tarea)
-                print('La tarea se añadió a la lista de tareas pendientes')
-            elif estado == "completada":
-                self.lista_tareas_completadas.append(tarea)
-                print('La tarea se añadió a la lista de tareas completadas')
-            self.mostrar_tareas()
-        else:
-            print("La tarea ya está introducida")
+#         if tarea not in self.lista_tareas_completadas and tarea not in self.lista_tareas_pendientes:
+#             if estado == "pendiente":
+#                 self.lista_tareas_pendientes.append(tarea)
+#                 print('La tarea se añadió a la lista de tareas pendientes')
+#             elif estado == "completada":
+#                 self.lista_tareas_completadas.append(tarea)
+#                 print('La tarea se añadió a la lista de tareas completadas')
+#             self.mostrar_tareas()
+#         else:
+#             print("La tarea ya está introducida")
 
-    def mostrar_tareas(self):
-        print('Pendientes:', self.lista_tareas_pendientes)
-        print('Completadas:', self.lista_tareas_completadas)
+#     def mostrar_tareas(self):
+#         print('Pendientes:', self.lista_tareas_pendientes)
+#         print('Completadas:', self.lista_tareas_completadas)
     
-    def mostrar_tareas(self):
-        print('Tareas Pendientes:')
-        for i, tarea in enumerate(self.lista_tareas_pendientes, 1):
-            print(f'{i}. {tarea}')
-        print('Tareas Completadas:')
-        for i, tarea in enumerate(self.lista_tareas_completadas, 1):
-            print(f'{i}. {tarea}')
+#     def mostrar_tareas(self):
+#         print('Tareas Pendientes:')
+#         for i, tarea in enumerate(self.lista_tareas_pendientes, 1):
+#             print(f'{i}. {tarea}')
+#         print('Tareas Completadas:')
+#         for i, tarea in enumerate(self.lista_tareas_completadas, 1):
+#             print(f'{i}. {tarea}')
 
 
 
-# Ejemplo de uso
-gestor = GestorTareas()
-tarea = input("Introduce una nueva tarea: ")
-estado = input("Introduce su estado (pendiente/completada): ")
-gestor.agregar_tarea(tarea, estado)
+# # Ejemplo de uso
+# gestor = GestorTareas()
+# tarea = input("Introduce una nueva tarea: ")
+# estado = input("Introduce su estado (pendiente/completada): ")
+# gestor.agregar_tarea(tarea, estado)
