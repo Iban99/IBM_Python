@@ -27,11 +27,14 @@ tarea = input("Introduce una nueva tarea: ")
 
 #Se verifica que el estado sea válido
 while True:
-    estado = input("Introduce su estado (pendiente/completada): ")
-    if estado in ["pendiente", "completada"]:
-        break  # Salimos del bucle si el estado es válido
-    else:
-        print("El estado sólo puede ser 'pendiente' o 'completada'. Inténtalo de nuevo.")
+    try:
+        estado = input("Introduce su estado (pendiente/completada): ")
+        if estado in ["pendiente", "completada"]:
+            break  # Salimos del bucle si el estado es válido
+        else:
+            raise ValueError("El estado sólo puede ser 'pendiente' o 'completada'. Inténtalo de nuevo.")
+    except ValueError as e:
+        print(e)
 
 #Bucle if en el que se comprueba si la tarea introducida está en alguna de las dos listas
 #y a partir de aquí, agrega la tarea a la lista correspondiente según el estado
@@ -47,5 +50,14 @@ if tarea not in lista_tareas_completadas and tarea not in lista_tareas_pendiente
 #Si la tarea ya existe en alguna de las listas, nos salta el print del else.
 else:
     print ("La tarea ya está introducida")
+
+
+#Objeto usuario
+    #Objeto lista tareas pendiente
+        #agregar tarea (pendiente por default) y numerarla
+        #marcar tarea completada (últimas en la lista)
+        #mostrar tareas
+        #eliminar tareas
+        #salir del programa
 
 
