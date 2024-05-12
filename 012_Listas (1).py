@@ -117,3 +117,5 @@ frutas = ["Manzana", "banana", "cereza"]
 miFunccion(frutas)
 
 
+miLista.sort() #ordena
+miLista.reverse() #ordena al reves
