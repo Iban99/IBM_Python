@@ -41,4 +41,5 @@ class GestorTareas:
                 print(f"{i + 1}. {task['description']} - {status}")
         else:
             print("No hay tareas pendientes.")
-    
+
+#Quiero que me prgeunte el nombre
