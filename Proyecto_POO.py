@@ -27,10 +27,10 @@ class GestorTareas:
     
     #Creamos el método para poder agregar una tarea a la lista
     def agg_tarea(self, descr_tarea):
-        self.tareas.append({"Tarea: " [descr_tarea], "completada: " False})
+        self.tareas.append({"descripcion": [descr_tarea], "completada": False})
     
     #Creamos el método para poder marcar una tarea como completada
-    def marcar_tarea_completada(self, indice):
+    def tarea_completada(self, indice):
         if 0 <= indice < len(self.tareas):
             self.tareas[indice]["completada"] = True
         else:
@@ -44,7 +44,7 @@ class GestorTareas:
                 estado = "completada" if tareas["completada"] else "Pendiente"
                 print(f"{i + 1}. {tareas['descripcion']} - {estado}")
         else:
-            print("No existe ninguna tarea en la lista.")
+            print("De momento, no existe ninguna tarea en la lista.")
     
     #Creamos el método para eliminar la tarea deseada de la lista
     def eliminar_tarea(self, indice):
@@ -56,28 +56,73 @@ class GestorTareas:
 
 # Programa, función principal
 def main():
+    #Instancia de la Clase GestorTareas, creando el objeto gestor
     gestor = GestorTareas()
-    nombre_usuario= input("\033[1;34mprint('¡Bienvenid@!¿Cuál es tu nombre?')\033[0m")
+    #Le pido al usuario que introduzca el nombre para poder interactuar
+    nombre= input("¡Bienvenid@!¿Indícame por favor, ¿Cuál es tu nombre? ")
 
+    #Creamos un bucle infinito para poder mostrar las opciones del programa
     while True:
-        print("\033[1;34mprint('Bienvenido al Gestor de Tareas')\033[0m")
-        print("\033[1mprint('1. Agregar una nueva tarea a la lista')\033[0m")
-        print("\033[1mprint('2. Marcar una tarea como completada')\033[0m")
-        print("\033[1mprint('3. Visualizar toda la lista de tareas')\033[0m")
-        print("\033[1mprint('4. Eliminar una tarea existente')\033[0m")
-        print("\033[1mprint('5. Salir del programa')\033[0m")
+        print('\nBienvenido al Gestor de Tareas')
+        print(" ")
+        print('1. Agregar una nueva tarea a la lista')
+        print('2. Marcar una tarea como completada')
+        print('3. Visualizar toda la lista de tareas')
+        print('4. Eliminar una tarea existente')
+        print('5. Salir del programa')
         
+        #Manejo de excepciones, con try y except
         try:
+            #Le pedimos al usuario que introduzca la opcion de la lista que desea realizar
             opcion = int(input("Selecciona una opción según su número:"))
             
-            if opcion == 1
+            #Bucle if, con todas las opciones disponibles en la lista
+            if opcion == 1:
+                #Esta opcion va a permitir introducir una nueva tarea a la lista llamando al método 
+                #agg_tarea de la clase GestorTareas
+                descr_tarea = input(f'Perfecto {nombre}, ya puede introducir la nueva tarea a la lista: ')
+                gestor.agg_tarea(descr_tarea) 
+                gestor.ver_tareas()
+                
+            elif opcion == 2:
+                #Esta opción nos va a permitir marcar una tarea completada llamando al método
+                #tarea_completada
+                gestor.ver_tareas()
+                indice = int(input(f"¨{nombre}, selecciona el número de la tarea que quiere marcar como completada: "))
+                indice_interno = indice - 1
+                gestor.tarea_completada(indice_interno)
+                
+            elif opcion == 3:
+                #Esta opción nos va a permitir ver toda la lista de las tareas y su estado llamando al
+                #método ver_tareas
+                print("\nLista de tareas:")
+                gestor.ver_tareas()
             
-            elif opcion == 2
+            elif opcion == 4:
+                #Esta opción nos va a permitir eliminar una tarea de la lista llamando al método
+                #eliminar_tarea
+                gestor.ver_tareas()
+                tarea_a_eliminar = int(input(f"{nombre}, selecciona el número de la tarea que quiere eliminar: "))
             
-            elif opcion == 3
+            elif opcion == 5:
+                #Esta opción nos va a permitir salir del bucle WHILE
+                print(f'{nombre}, muchas gracias por usar este programa, nos vemos pronto')
+                print('¡Hasta pronto!')
+                break
             
-            elif opcion == 4
-            
-            elif opcion == 5
+            else:
+                #En el caso de que el número introducido no esté en la lista
+                print("La opción seleccionada no es válida. Por favor, vuelva a probar.")
         
-        except
+        except ValueError:
+            #En el caso de que el dato que introduzca el usuario no sea un número
+            print("Error: El caracter introducido no es válido. Introduce un número")
+
+main()
+    
+
+
+
+        
+        
+        
