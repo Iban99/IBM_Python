@@ -19,27 +19,65 @@ usuario ingrese una opción no válida o una posición que no exista en la lista
 funcionamiento en cada parte relevante.
 
 '''
-
+#Creamos la CLASE de GESTOR DE TAREAS 
 class GestorTareas:
+    #Inicialización de los atributos de la instancia
     def __init__ (self):
         self.tareas = []
     
+    #Creamos el método para poder agregar una tarea a la lista
     def agg_tarea(self, descr_tarea):
-        self.tareas.append(f'descripcion: {descr_tarea}, completed: False')
-        
-    def completa_tarea(self, estado):
-        if estado == 'completado':
-            self.tareas[estado.lower]["completado"] = True
+        self.tareas.append({"Tarea: " [descr_tarea], "completada: " False})
+    
+    #Creamos el método para poder marcar una tarea como completada
+    def marcar_tarea_completada(self, indice):
+        if 0 <= indice < len(self.tareas):
+            self.tareas[indice]["completada"] = True
         else:
-            print("Error: una tarea sólo puede estar pendiente o completada.")
-            
+            print("Error: el índice indicado no existe.")
+    
+    #Creamos el método para poder ver todas las tareas de la lista
     def ver_tareas(self):
         if self.tareas:
             print("Lista de tareas:")
-            for i, tareas in enumerate(self.tasks):
-                status = "Completada" if task["completed"] else "Pendiente"
-                print(f"{i + 1}. {task['description']} - {status}")
+            for i, tareas in enumerate(self.tareas):
+                estado = "completada" if tareas["completada"] else "Pendiente"
+                print(f"{i + 1}. {tareas['descripcion']} - {estado}")
         else:
-            print("No hay tareas pendientes.")
+            print("No existe ninguna tarea en la lista.")
+    
+    #Creamos el método para eliminar la tarea deseada de la lista
+    def eliminar_tarea(self, indice):
+        if 0 <= indice < len(self.tareas):
+            del self.tareas[indice]
+        else:
+            print("Error: el índice indicado no existe.")
+        
 
-#Quiero que me prgeunte el nombre
+# Programa, función principal
+def main():
+    gestor = GestorTareas()
+    nombre_usuario= input("\033[1;34mprint('¡Bienvenid@!¿Cuál es tu nombre?')\033[0m")
+
+    while True:
+        print("\033[1;34mprint('Bienvenido al Gestor de Tareas')\033[0m")
+        print("\033[1mprint('1. Agregar una nueva tarea a la lista')\033[0m")
+        print("\033[1mprint('2. Marcar una tarea como completada')\033[0m")
+        print("\033[1mprint('3. Visualizar toda la lista de tareas')\033[0m")
+        print("\033[1mprint('4. Eliminar una tarea existente')\033[0m")
+        print("\033[1mprint('5. Salir del programa')\033[0m")
+        
+        try:
+            opcion = int(input("Selecciona una opción según su número:"))
+            
+            if opcion == 1
+            
+            elif opcion == 2
+            
+            elif opcion == 3
+            
+            elif opcion == 4
+            
+            elif opcion == 5
+        
+        except
