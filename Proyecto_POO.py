@@ -89,6 +89,8 @@ def main():
                 #tarea_completada
                 gestor.ver_tareas()
                 indice = int(input(f"¨{nombre}, selecciona el número de la tarea que quiere marcar como completada: "))
+                #Esta variable es necesaria, ya que sino al introducir el índice, como el diccionario inicializa en 0, nos
+                #marcaría un error.
                 indice_interno = indice - 1
                 gestor.tarea_completada(indice_interno)
                 
