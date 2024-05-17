@@ -21,7 +21,7 @@ funcionamiento en cada parte relevante.
 '''
 #Creamos la CLASE de GESTOR DE TAREAS 
 class GestorTareas:
-    #Inicialización de los atributos de la instancia
+    #Inicialización de los atributos de la instancia. Constructor.
     def __init__ (self):
         self.tareas = []
     

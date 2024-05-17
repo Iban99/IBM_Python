@@ -40,3 +40,8 @@ print("El coche está arrancado:" , miCoche.arrancar())
 #Modificamos el valor de una propiedad
 miCoche2.ruedas = 10
 print("El coche2 tiene:" , miCoche2.ruedas, "ruedas.")
+
+mi_cadena = 'cadena 1'
+dir(mi_cadena)
+resultado = mi_cadena.capitalize()
+resultado
