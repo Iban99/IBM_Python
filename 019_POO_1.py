@@ -30,6 +30,7 @@ miCoche = Coche()
 miCoche2 = Coche()
 
 # Acceso a un atributo de la clase Coche. Nomenclatura del punto.
+print(f'{miCoche.largo} x {miCoche.ancho}')
 print("El largo del coche es de" , miCoche.largo, "cm.")
 miCoche.arrancar()
 print(miCoche.estado())
