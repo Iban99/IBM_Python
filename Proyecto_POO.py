@@ -52,7 +52,7 @@ class GestorTareas:
             del self.tareas[indice]
         else:
             print("Error: el índice indicado no existe.")
-        
+
 
 # Programa, función principal
 def main():
