@@ -42,7 +42,9 @@ class GestorTareas:
             print("Lista de tareas:")
             for i, tareas in enumerate(self.tareas):
                 estado = "completada" if tareas["completada"] else "Pendiente"
-                print(f"{i + 1}. {tareas['descripcion']} - {estado}")
+                color = "\033[92m" if tareas["completada"] else "\033[91m"  
+                reset = "\033[0m"
+                print(f"{i + 1}. {color}{tareas['descripcion']} - {estado}{reset}")
         else:
             print("De momento, no existe ninguna tarea en la lista.")
     
@@ -59,7 +61,7 @@ def main():
     #Instancia de la Clase GestorTareas, creando el objeto gestor
     gestor = GestorTareas()
     #Le pido al usuario que introduzca el nombre para poder interactuar
-    nombre= input("¡Bienvenid@!¿Indícame por favor, ¿Cuál es tu nombre? ")
+    nombre= input("¡Bienvenid@! Indícame por favor, ¿Cuál es tu nombre? ")
 
     #Creamos un bucle infinito para poder mostrar las opciones del programa
     while True:
@@ -70,23 +72,33 @@ def main():
         print('3. Visualizar toda la lista de tareas')
         print('4. Eliminar una tarea existente')
         print('5. Salir del programa')
+        print(" ")
         
         #Manejo de excepciones, con try y except
         try:
             #Le pedimos al usuario que introduzca la opcion de la lista que desea realizar
-            opcion = int(input("Selecciona una opción según su número:"))
+            opcion = int(input("Selecciona una opción según su número: "))
             
             #Bucle if, con todas las opciones disponibles en la lista
             if opcion == 1:
                 #Esta opcion va a permitir introducir una nueva tarea a la lista llamando al método 
-                #agg_tarea de la clase GestorTareas
-                descr_tarea = input(f'Perfecto {nombre}, ya puede introducir la nueva tarea a la lista: ')
-                gestor.agg_tarea(descr_tarea) 
-                gestor.ver_tareas()
-                
+                #agg_tarea de la clase GestorTareas. 
+                while True:
+                    #El bucle para introducir de 1 vez tantas como se quiera.
+                        print(" ")
+                        descr_tarea = input(f'Perfecto {nombre}, ya puede introducir la nueva tarea a la lista: ')
+                        gestor.agg_tarea(descr_tarea) 
+                        print(" ")
+                        gestor.ver_tareas()
+                        print(" ")
+                        agregar_otra = input('¿Quieres agregar otra tarea (si/no): ').strip().lower()
+                        if agregar_otra != 'si':
+                            break
+                            
             elif opcion == 2:
                 #Esta opción nos va a permitir marcar una tarea completada llamando al método
                 #tarea_completada
+                print(" ")
                 gestor.ver_tareas()
                 indice = int(input(f"¨{nombre}, selecciona el número de la tarea que quiere marcar como completada: "))
                 #Esta variable es necesaria, ya que sino al introducir el índice, como el diccionario inicializa en 0, nos
@@ -97,27 +109,33 @@ def main():
             elif opcion == 3:
                 #Esta opción nos va a permitir ver toda la lista de las tareas y su estado llamando al
                 #método ver_tareas
-                print("\nLista de tareas:")
+                print(" ")
                 gestor.ver_tareas()
             
             elif opcion == 4:
                 #Esta opción nos va a permitir eliminar una tarea de la lista llamando al método
                 #eliminar_tarea
+                print(" ")
                 gestor.ver_tareas()
                 tarea_a_eliminar = int(input(f"{nombre}, selecciona el número de la tarea que quiere eliminar: "))
+                numero_interno= tarea_a_eliminar - 1
+                gestor.eliminar_tarea(numero_interno)
             
             elif opcion == 5:
                 #Esta opción nos va a permitir salir del bucle WHILE
-                print(f'{nombre}, muchas gracias por usar este programa, nos vemos pronto')
+                print(" ")
+                print(f'{nombre}, muchas gracias por usar este programa, nos vemos pronto.')
                 print('¡Hasta pronto!')
                 break
             
             else:
                 #En el caso de que el número introducido no esté en la lista
+                print(" ")
                 print("La opción seleccionada no es válida. Por favor, vuelva a probar.")
         
         except ValueError:
             #En el caso de que el dato que introduzca el usuario no sea un número
+            print(" ")
             print("Error: El caracter introducido no es válido. Introduce un número")
 
 main()
@@ -128,3 +146,5 @@ main()
         
         
         
+
+    
