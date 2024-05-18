@@ -57,9 +57,24 @@
 # print(list)
 # print(set)
 
-test_tup=(7,8,9,1,10,7)
-print("The original tuple : " + str(test_tup))
+# test_tup=(7,8,9,1,10,7)
+# print("The original tuple : " + str(test_tup))
 
-res = sum(list(test_tup))
-print (res)
+# res = sum(list(test_tup))
+# print (res)
 
+class Persona:
+    pass
+
+#Declarar atributos fuera de la clase que pertenecen a ella
+Persona.nombre = 'Ana'
+Persona.edad = 30
+
+persona = Persona()
+persona.nombre
+
+#Declarar métodos de la clase que pertenecen a ella
+def presentarse(self):
+    return f'Hola'
+
+Persona.presentarse = presentarse

@@ -8,7 +8,7 @@
 from ast import If
 
 
-class Coche():
+class Coche:
 # Declaración de atributos
     largo = 250
     ancho = 120
@@ -37,3 +37,21 @@ print(miCoche.estado())
 
 # Acceso a un método de la clase Coche. Nomenclatura del punto.
 print("El coche está arrancado:" , miCoche.arrancar())
+
+
+
+class Persona:
+    pass
+
+#Declarar atributos fuera de la clase que pertenecen a ella
+Persona.nombre = 'Ana'
+Persona.edad = 30
+
+persona = Persona()
+persona.nombre
+
+#Declarar métodos de la clase que pertenecen a ella
+def presentarse(self):
+    return f'Hola'
+
+Persona.presentarse = presentarse
