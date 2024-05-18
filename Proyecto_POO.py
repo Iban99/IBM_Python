@@ -65,7 +65,7 @@ def main():
 
     #Creamos un bucle infinito para poder mostrar las opciones del programa
     while True:
-        print('\nBienvenido al Gestor de Tareas')
+        print('\033[1m' + 'Bienvenid@ al Gestor de Tareas'+ '\033[0m')
         print(" ")
         print('1. Agregar una nueva tarea a la lista')
         print('2. Marcar una tarea como completada')
@@ -91,10 +91,13 @@ def main():
                         print(" ")
                         gestor.ver_tareas()
                         print(" ")
+                        #Condicional para poder volver a introducir otra tarea
                         agregar_otra = input('¿Quieres agregar otra tarea (si/no): ').strip().lower()
-                        if agregar_otra != 'si':
+                        if agregar_otra == 'si':
+                            continue
+                        elif agregar_otra != 'si':
                             break
-                            
+                                       
             elif opcion == 2:
                 #Esta opción nos va a permitir marcar una tarea completada llamando al método
                 #tarea_completada
@@ -136,7 +139,7 @@ def main():
         except ValueError:
             #En el caso de que el dato que introduzca el usuario no sea un número
             print(" ")
-            print("Error: El caracter introducido no es válido. Introduce un número")
+            print('\033[1;31m' + 'Error: El caracter introducido no es válido. Introduce un número.' + '\033[0m')
 
 main()
     
